@@ -79,7 +79,7 @@ class SectionController extends Controller
     public function show(Section $section)
     {
         // Check if professor owns this section
-        if ($section->professor_id !== auth()->id() && !auth()->user()->hasRole('admin')) {
+        if ($section->professor_id != auth()->id() && !auth()->user()->hasRole('admin')) {
             abort(403);
         }
 
@@ -192,7 +192,7 @@ class SectionController extends Controller
     public function enrollStudentsForm(Section $section)
     {
         // Check if professor owns this section
-        if ($section->professor_id !== auth()->id()) {
+        if ($section->professor_id != auth()->id()) {
             abort(403);
         }
 
@@ -203,7 +203,7 @@ class SectionController extends Controller
     public function enrollStudentsCsv(Request $request, Section $section)
     {
         // Check if professor owns this section
-        if ($section->professor_id !== auth()->id()) {
+        if ($section->professor_id != auth()->id()) {
             abort(403);
         }
 

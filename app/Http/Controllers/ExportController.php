@@ -22,7 +22,7 @@ class ExportController extends Controller
     public function exportClassRecord(Section $section)
     {
         // Authorization check
-        if ($section->professor_id !== auth()->id() && !auth()->user()->hasRole('admin')) {
+        if ($section->professor_id != auth()->id() && !auth()->user()->hasRole('admin')) {
             abort(403);
         }
 

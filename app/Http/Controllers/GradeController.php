@@ -20,7 +20,7 @@ class GradeController extends Controller
     public function professorGradeInput(Section $section)
     {
         // Check authorization
-        if ($section->professor_id !== auth()->id() && !auth()->user()->hasRole('admin')) {
+        if ($section->professor_id != auth()->id() && !auth()->user()->hasRole('admin')) {
             abort(403);
         }
 
@@ -429,7 +429,7 @@ class GradeController extends Controller
     public function addCustomCriteria(Request $request, Section $section)
     {
         // Authorization
-        if ($section->professor_id !== auth()->id() && !auth()->user()->hasRole('admin')) {
+        if ($section->professor_id != auth()->id() && !auth()->user()->hasRole('admin')) {
             return response()->json(['error' => 'Unauthorized'], 403);
         }
 
